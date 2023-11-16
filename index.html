@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Tutorial</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script>
+        MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                processEscapes: true
+            },
+            "HTML-CSS": { scale: 90 },
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js" integrity="sha512-7xTD1meeGGoAzwZKA0Z8YelV3qAvRltuwACWXpnxtneF7VAMztOTAi3t4laVSaE4Znq4LMPeGUIYWEvKEk5r3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js" integrity="sha512-S6SXKUZ11xkCoD/UuhdXG4B4iiCXng+xW2KCx0lgfQqmdqtjqGgm4WChdYIhO1F/CmH21vnkSUvPEgXNgDwkjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="intro">
+        <h1>An Introduction to Sampling Distributions</h1>
+        <h1>By Arjun</h1>
+    </div>
+
+
+    <div class="math">
+        <h2>Z vs T statistic</h2>
+        <table border="1">
+            <tr>
+              <th>Statistic</th>
+              <th>Conditions</th>
+              <th>Distribution</th>
+              <th>Use Case</th>
+            </tr>
+            <tr>
+              <td>Z-Statistic</td>
+              <td>Population variance is known and sample size is large (n ≥ 30).</td>
+              <td>Standard normal distribution.</td>
+              <td>Used for hypothesis testing when conditions for a normal distribution are met and population parameters are known.</td>
+            </tr>
+            <tr>
+              <td>T-Statistic</td>
+              <td>Population variance is unknown and estimated from the sample, typically used for smaller sample sizes (n < 30).</td>
+              <td>T-distribution with degrees of freedom related to sample size.</td>
+              <td>Used for hypothesis testing when population variance is unknown, especially with smaller sample sizes.</td>
+            </tr>
+        </table>
+          
+        <h2>Understanding Null Hypothesis Significance Testing</h2>
+        <p>Null Hypothesis Significance Testing (NHST) is a fundamental concept in statistics that helps in decision-making processes. It is a method used to determine if there is enough evidence in a sample of data to infer that a certain condition is true for the entire population.</p>
+
+        <h2>What is the Null Hypothesis?</h2>
+        <p>The <strong>null hypothesis</strong> \(H_{0}\) is a general statement or default position that there is no relationship between two measured phenomena or no association among groups. For example, \(H_{0}:\mu=0\).</p>
+
+        <h2>What is the Alternative Hypothesis?</h2>
+        <p>The <strong>alternative hypothesis</strong> \(H_{1}\) or \(H_{a}\) is what you might believe to be true or hope to prove true. For instance, \(H_{1}:\mu\neq0\) in a two-tailed test.</p>
+
+        <h2>Significance Level \(\alpha\)</h2>
+        <p>The significance level \(\alpha\) is a threshold set by the researcher which defines the probability of rejecting the null hypothesis when it is actually true. A common choice for \(\alpha\) is 0.05.</p>
+
+        <h2>Decision Rule</h2>
+        <p>If the p-value is less than or equal to the significance level, we reject the null hypothesis. This is considered statistically significant. Conversely, if the p-value is greater than \(\alpha\), we fail to reject the null hypothesis.</p>
+
+        <table border="1">
+            <tr>
+              <th>Step</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Formulation of Hypotheses</td>
+              <td>The null hypothesis (H<sub>0</sub>) typically states no effect or difference. The alternative hypothesis (H<sub>1</sub>) represents the effect or difference expected.</td>
+            </tr>
+            <tr>
+              <td>Selection of Significance Level (α)</td>
+              <td>The threshold probability for rejecting H<sub>0</sub>. Commonly set at 0.05.</td>
+            </tr>
+            <tr>
+              <td>Test Statistic Calculation</td>
+              <td>A measure derived from sample data, indicating the compatibility of the data with H<sub>0</sub>.</td>
+            </tr>
+            <tr>
+              <td>Calculation of P-value</td>
+              <td>The probability of obtaining the observed data, or more extreme, under H<sub>0</sub>.</td>
+            </tr>
+            <tr>
+              <td>Decision Rule</td>
+              <td>The pre-determined rule stating that if the p-value ≤ α, H<sub>0</sub> is rejected.</td>
+            </tr>
+            <tr>
+              <td>Conclusion</td>
+              <td>The final decision about H<sub>0</sub> based on the comparison of the p-value and the significance level.</td>
+            </tr>
+        </table>
+
+        <h2>Introduction to p values</h2>
+        <div class="image"><img style = "width:50%; margin-bottom: 40px;" src="https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/GUID-CBF63B74-D1B2-44FC-A316-7AC2B1C1D464-web.png" alt=""></div>
+        <table border="1">
+            <tr>
+              <th>Aspect</th>
+              <th>Detail</th>
+              <th>Explanation</th>
+            </tr>
+            <tr>
+              <td>Definition</td>
+              <td>p-value</td>
+              <td>The p-value is the probability of obtaining test results at least as extreme as the observed results, under the assumption that the null hypothesis is correct.</td>
+            </tr>
+            <tr>
+              <td>Interpretation</td>
+              <td>Low p-value</td>
+              <td>A low p-value (typically ≤ 0.05) indicates strong evidence against the null hypothesis, so it is rejected.</td>
+            </tr>
+            <tr>
+              <td>Interpretation</td>
+              <td>High p-value</td>
+              <td>A high p-value indicates weak evidence against the null hypothesis, so it is not rejected.</td>
+            </tr>
+            <tr>
+              <td>Misconceptions</td>
+              <td>p-value & hypothesis truth</td>
+              <td>The p-value does not measure the probability that the null hypothesis is true or false. It only measures the evidence against the null hypothesis.</td>
+            </tr>
+            <tr>
+              <td>Significance Level (\( \alpha \))</td>
+              <td>Threshold</td>
+              <td>The significance level is the threshold below which the p-value is considered strong enough evidence to reject the null hypothesis.</td>
+            </tr>
+            <tr>
+              <td>Context Dependence</td>
+              <td>Importance of context</td>
+              <td>The p-value should be considered in the context of the study, including the size of the effect and the practical significance, not just statistical significance.</td>
+            </tr>
+            <tr>
+              <td>Not an Error Probability</td>
+              <td>Common misunderstanding</td>
+              <td>The p-value is not the probability of making a mistake by rejecting a true null hypothesis (Type I error).</td>
+            </tr>
+        </table>
+        <div class="image"><img style = "width:70%; margin:40px;" src="https://www.gigacalculator.com/articles/wp-content/uploads/2020/12/p-value-significance-level-explained.png" alt=""></div>
+          
+        <h2>Estimating a test statistic</h2>
+        <table border="1">
+            <tr>
+              <th>Step</th>
+              <th>Action</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>State the Hypotheses</td>
+              <td>Formulate the null hypothesis (H<sub>0</sub>) and the alternative hypothesis (H<sub>1</sub>). The null hypothesis typically represents the status quo or no effect.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Choose the Significance Level</td>
+              <td>Select the significance level (\( \alpha \)), which is the probability of rejecting the null hypothesis when it is true. Common choices are 0.05 or 0.01.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Select the Appropriate Test</td>
+              <td>Choose a statistical test based on the study design, data distribution, and whether the population variance is known. Common tests include Z-test, t-test, chi-squared test, etc.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Collect Data</td>
+              <td>Gather the sample data which will be used to calculate the test statistic.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Calculate the Test Statistic</td>
+              <td>Use the sample data to calculate the test statistic (e.g., Z-score or t-score) which measures how far the sample statistic deviates from the null hypothesis.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Find the P-value</td>
+              <td>Determine the p-value which is the probability of observing the test statistic or one more extreme under the assumption that the null hypothesis is true.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Make a Decision</td>
+              <td>Compare the p-value to the significance level. If the p-value is less than or equal to \( \alpha \), reject the null hypothesis. Otherwise, fail to reject it.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Report the Results</td>
+              <td>Clearly present the findings of the hypothesis test, including the test statistic, p-value, and conclusion regarding the null hypothesis.</td>
+            </tr>
+        </table>
+        <h2>Overview</h2>
+    <p>A test statistic is a standardized value that is calculated from sample data during a hypothesis test. It's used to determine whether to reject the null hypothesis.</p>
+    
+    <h2>Z-Test Statistic</h2>
+    <p>The Z-test statistic is used when testing hypotheses about the population mean when the population standard deviation is known and the sample size is large.</p>
+    <p>The formula for the Z-test statistic is:</p>
+    <p>\[ Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \]</p>
+    <ul>
+        <li>\( \bar{X} \) is the sample mean.</li>
+        <li>\( \mu_0 \) is the hypothesized population mean under the null hypothesis.</li>
+        <li>\( \sigma \) is the population standard deviation.</li>
+        <li>\( n \) is the sample size.</li>
+    </ul>
+
+    <h2>T-Test Statistic</h2>
+    <p>The t-test statistic is used when the population standard deviation is unknown and the sample size is small.</p>
+    <p>The formula for the t-test statistic is:</p>
+    <p>\[ t = \frac{\bar{X} - \mu_0}{\frac{s}{\sqrt{n}}} \]</p>
+    <ul>
+        <li>\( \bar{X} \) is the sample mean.</li>
+        <li>\( \mu_0 \) is the hypothesized population mean under the null hypothesis.</li>
+        <li>\( s \) is the sample standard deviation.</li>
+        <li>\( n \) is the sample size.</li>
+    </ul>
+
+    <h2>Interpreting the Test Statistic</h2>
+    <p>The calculated test statistic is compared against a critical value from a statistical distribution (such as the standard normal distribution for a Z-test or the t-distribution for a t-test) to determine whether to reject the null hypothesis.</p>
+
+        <h2>Z-Test Statistic Calculation Example</h2>
+        <p>Given the following information:</p>
+        <ul>
+            <li>Population mean (\( \mu \)): 75</li>
+            <li>Sample mean (\( \bar{X} \)): 78</li>
+            <li>Population standard deviation (\( \sigma \)): 5</li>
+            <li>Sample size (\( n \)): 30</li>
+        </ul>
+        
+        <p>We can state our hypotheses as:</p>
+        <ul>
+            <li>Null hypothesis (\( H_0 \)): \( \mu = 75 \)</li>
+            <li>Alternative hypothesis (\( H_1 \)): \( \mu \neq 75 \)</li>
+        </ul>
+        
+        <p>The Z-test statistic is calculated using the formula:</p>
+        <p>\[ Z = \frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \]</p>
+        
+        <p>Plugging in the values we get:</p>
+        <p>\[ Z = \frac{78 - 75}{\frac{5}{\sqrt{30}}} \]</p>
+        
+        <p>Calculating the Z-value gives us:</p>
+        <p>\[ Z \approx 2.915 \]</p>
+        
+        <p>Now, we can use the Z-value to find the p-value and make a decision about our null hypothesis.</p>
+        <h2>T Statistic Example</h2>
+        <p>Scenario: Testing the effect of a new teaching method on student test scores.</p>
+        <ul>
+            <li>Sample size (n): 25</li>
+            <li>Sample mean (\( \bar{X} \)): 82</li>
+            <li>Sample standard deviation (s): 6</li>
+            <li>Hypothesized population mean (\( \mu_0 \)): 80</li>
+        </ul>
+        
+        <h2>Calculation</h2>
+        <p>The t-test statistic is calculated as:</p>
+        <p>\[ t = \frac{\bar{X} - \mu_0}{\frac{s}{\sqrt{n}}} \]</p>
+        <p>Plugging in the values, we get:</p>
+        <p>\[ t = \frac{82 - 80}{\frac{6}{\sqrt{25}}} = \frac{2}{1.2} = 1.67 \]</p>
+        
+        <p>Now, we can use the t-statistic to find the p-value and make a decision regarding our null hypothesis.</p>
+
+        <button class = 'play'>Play Time</button>
+
+        <div class="frame inactive">
+            <iframe src="https://claustecter.shinyapps.io/PValues/" frameborder="0"></iframe>
+        </div>
+
+        <h2>Problem Set</h2>
+        <ol>
+            <li>A company claims that its employees have an average IQ of 110. A random sample of 50 employees is taken, and their average IQ is found to be 108 with a standard deviation of 15. Test at a 5% significance level whether the company's claim is accurate.</li>
+            <li>A type of candy is labeled to have a weight of 120 grams. A quality control test is conducted where a sample of 100 candies is weighed, and the average weight is found to be 118 grams with a standard deviation of 10 grams. Is there evidence at a 1% significance level that the average weight of the candy is different from the labeled weight?</li>
+            <li>A new teaching method is claimed to increase student performance. To test this, a sample of 20 students is selected, and their performance is evaluated. The sample mean score is 75 with a standard deviation of 8, while the historical mean score is 70. Test the effectiveness of the new teaching method at a 5% significance level.</li>
+            <li>A pharmaceutical company claims that their new drug lowers blood pressure more effectively than the current standard. In a trial, 15 patients are administered the new drug, resulting in an average drop in blood pressure of 30 mm Hg with a standard deviation of 5 mm Hg. Historically, the standard drug reduces blood pressure by 25 mm Hg. Test the company's claim at a 1% significance level.</li>
+        </ol>
+
+        <h2>Solutions</h2>
+        <h2>Z-Statistic Problems</h2>
+        <h3>Problem 1 Solution</h3>
+        <p>\[ Z = \frac{108 - 110}{\frac{15}{\sqrt{50}}} \approx -0.94 \]</p>
+        <p>The Z value is -0.94. Since this is less than 1.96 (the critical value for a 5% significance level), we fail to reject the null hypothesis.</p>
+
+        <h3>Problem 2 Solution</h3>
+        <p>\[ Z = \frac{118 - 120}{\frac{10}{\sqrt{100}}} = -2 \]</p>
+        <p>The Z value is -2. Since this is greater than -2.33 (the critical value for a 1% significance level), we fail to reject the null hypothesis.</p>
+
+        <h2>T-Statistic Problems</h2>
+        <h3>Problem 1 Solution</h3>
+        <p>\[ t = \frac{75 - 70}{\frac{8}{\sqrt{20}}} \approx 3.54 \]</p>
+        <p>The t value is 3.54. This is greater than 2.093 (the critical t-value for a 5% significance level with 19 degrees of freedom), so we reject the null hypothesis.</p>
+
+        <h3>Problem 2 Solution</h3>
+        <p>\[ t = \frac{30 - 25}{\frac{5}{\sqrt{15}}} \approx 6.16 \]</p>
+        <p>The t value is 6.16. This is greater than 2.977 (the critical t-value for a 1% significance level with 14 degrees of freedom), so we reject the null hypothesis.</p>
+
+</body>
+</html>
