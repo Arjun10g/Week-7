@@ -14,6 +14,17 @@ pval_plot <- function(distribution, statistic, df = NULL){
   }
 }
 
+alpha_to_statistic <- function(alpha, dof = NULL){
+  if(is.null(dof)){
+    x <- qnorm(alpha + ((1-alpha)/2))
+  } else{
+    x <- qt(alpha + ((1-alpha)/2),df = dof)
+  }
+  
+  cat('For a value to be significant at the alpha level = ', alpha,'\n', 'You\'d need a test statistic more extreme than - ', x)
+}
+
+
 plot_statistic <- function(dat, statistic, dist, df = NULL){
   if(dist == 'z'){
     dat %>% ggplot(aes(x,y)) +
@@ -56,7 +67,19 @@ ui <- fluidPage(
         mainPanel(verbatimTextOutput('out1'),
                   plotOutput('plot1'))
       )
-    )
+    ),
+    tabPanel('Generate test statistics using alpha',
+             sidebarLayout(
+               sidebarPanel(
+                 sliderInput(inputId = 'alpha', label = 'Choose your Alpha Value',min = 0.01,max = 0.99,value = 0.95,step = 0.01),
+                 numericInput(inputId = 'dofalpha',label = 'Choose degrees of freedom',min = 1,max = Inf,value = 10000,step = 1),
+                 tags$p('To obtain the alpha value for a Z-statistic, put in a very large number for the degrees of freedom')
+               ),
+               mainPanel(
+                 verbatimTextOutput('alphaval')
+               )
+             )
+             )
   )
 )
 
@@ -99,8 +122,13 @@ server <- function(input, output) {
             "\nTwo-Sided P-Value:", two_sided_p_value)
     })
   })
+  output$alphaval <- renderPrint({
+    alpha_to_statistic(input$alpha,dof = input$dofalpha)
+  })
   
 }
 
 shinyApp(ui = ui,server = server)
+
+
 

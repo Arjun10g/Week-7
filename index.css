@@ -185,7 +185,7 @@ body{
     position: relative;
 }
 .image img{
-    width: 100%;
+    width: 65%;
     object-fit: 100%;
     border-radius: 10px;
 }
@@ -313,3 +313,11 @@ table {
     font-weight: 700;
     letter-spacing: 2px;
   }
+
+.red{
+  color:red;
+}
+
+.green{
+        color:green;
+}

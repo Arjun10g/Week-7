@@ -5,8 +5,9 @@ account: claustecter
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10542893
-bundleId: 7933704
+bundleId: 7962292
 url: https://claustecter.shinyapps.io/PValues/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: index.css|index.html|index.js|PSYC2020_Tutorial 8_9.pptx|Tutorial 7.pptx
