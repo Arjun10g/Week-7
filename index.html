@@ -509,9 +509,135 @@
     <p><strong>Population Mean Weight Loss (in kg):</strong> 2</p>
 
     <p>Task: Calculate the test statistic, p-value, and the confidence interval for this data set and make inferences whether the supplement is effective.</p>
+    <h2>Introduction to Power</h2>
 
+    <p>Power in statistics refers to the probability that a statistical test will correctly reject a false null hypothesis. In simpler terms, it's the likelihood that a study will detect an effect or difference when one truly exists. It's a crucial concept because it helps determine the sensitivity of a statistical test, indicating how likely it is to avoid a Type II error (false negative).</p>
+    <table border="1">
+      <tr>
+        <th>Key Points about Power in Statistics</th>
+      </tr>
+      <tr>
+        <td>1. Relationship with Effect Size: Power increases with larger effect sizes.</td>
+      </tr>
+      <tr>
+        <td>2. Sample Size and Power: Generally, larger sample sizes lead to higher power.</td>
+      </tr>
+      <tr>
+        <td>3. Significance Level and Power: Balance between significance level and power.</td>
+      </tr>
+      <tr>
+        <td>4. Type I and Type II Errors: Inverse relationship with Type II errors.</td>
+      </tr>
+      <tr>
+        <td>5. Calculation of Power: Factors include effect size, sample size, variability, and significance level.</td>
+      </tr>
+      <tr>
+        <td>6. Trade-offs: Increasing power may involve trade-offs like larger sample sizes.</td>
+      </tr>
+    </table>
 
+    <h3 style = "margin: 20px;">\(\alpha\) and \(\beta\)</h3>
+    <table border="1">
+      <tr>
+        <th>Concept</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>α (Alpha)</td>
+        <td>The significance level used in hypothesis testing, representing the probability of a Type I error: rejecting the null hypothesis when it's actually true.</td>
+      </tr>
+      <tr>
+        <td>β (Beta)</td>
+        <td>The probability of a Type II error, representing the likelihood of failing to reject the null hypothesis when it's false. Power (1 - β) is the complement of β.</td>
+      </tr>
+    </table>    
+    </div>
+
+    <div class="math">
+      <h2>Practice Problem Set</h2>
     
+      <p><span class="red">Problem 1 - </span> If we take take 100 samples from a population, and given an alpha level of 0.05, what is the probability of a Type 1 Error?</p>
+      <p><span class="red">Problem 2 - </span>How does a T distribution differ from the Z distribution for the following scenarios - </p>
+      <ul>
+          <li>Sample size is 10</li>
+          <li>Sample size is 100</li>
+          <li>Sample size is 1000</li>
+      </ul>
+      <p><span class="red">Problem 3 - </span>What is the relationship between sample size and power?</p>
+      <p><span class="red">Problem 4 - </span>Given a margin of error of 2.5 and a mean of 20, what is our confidence interval?</p>
+      <p><span class="red">Problem 5 - </span>What is the relationship between sample size and Confidence Intervals in the following scenarios -</p>
+      <ul>
+          <li>Sample size is low</li>
+          <li>Sample size is large</li>
+      </ul>
+      <p><span class="red">Problem 6 - </span>Given that a researcher is looking for significant results, he/she should opt for which of the following?</p>
+      <ul>
+          <li>90% Confidence Level</li>
+          <li>95% Confidence Level</li>
+          <li>99% Confidence Level</li>
+      </ul>
+      <p><span class="red">Problem 7 - </span>What is the difference between descriptive and inferential statistics? Give an example for each statistic.</p>
+      <p><span class="red">Problem 8 - </span>A company conducts a clinical trial to test the effectiveness of a new drug, they incorrectly conclude that their drug is effective. Answer the following questions -  </p>
+      <ul>
+        <li>What is their null hypothesis?</li>
+        <li>What is their alternative hypothesis?</li>
+        <li>What type of error did they make?</li>
+        <li>What could they do to reduce the likelhood of such an error?</li>
+      </ul>
+      <p><span class="red">Problem 9 - </span>What does a Type 2 Error signify in the context of null hypothesis testing? </p>
+      <p><span class="red">Problem 10 - </span>In the context of clinical testing for a new medication, what is the more severe consequence?</p>
+      <ul>
+        <li>Type 1 Error</li>
+        <li>Type 2 Error</li>
+      </ul>
+      <p><span class="red">Problem 11 - </span>Which approach reduces the likelihood of commiting a Type 1 error?</p>
+      <ul>
+        <li>Increasing the sample size</li>
+        <li>Increasing the significance level to 0.10</li>
+        <li>Decreasing the significance level to 0.01</li>
+      </ul>
+      <p><span class="red">Problem 12 - </span>What is the difference in general formula for obtaining a z vs t test statistic? </p>
+      <p><span class="red">Problem 13 - </span>What does each symbol signify?</p>
+      <ul>
+        <li>Z = \(\frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}\)</li>
+        <li>t = \(\frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}\)</li>
+      </ul>
+      <p><span class="red">Problem 14 - </span>In a scientific experiment, which of the following would be preferred if the goal is maintain statistical intergrity?</p>
+      <ul>
+        <li>Selective Sampling</li>
+        <li>Random Sampling</li>
+      </ul>
+      <p><span class="red">Problem 15 - </span>Is there a difference between sampling and sample distribution? If yes, what? If no, What is a sampling/sample distribution?</p>
+      <p><span class="red">Problem 16 - </span>Given a sample size of 50, a variance of 25, what is the standard error? Furthermore, let's assume a mean of 10, what is the 95% confidence interval?</p>
+      <p><span class="red">Problem 17 - </span>A researcher wants to examine whether a new teaching method improves students' test scores in mathematics compared to the conventional method. Given that the class average grade was originally 65. Define the null and alternative hypotheses for this study.</p>
+      <p><span class="red">Problem 18 - </span>An experiment investigates whether a certain drug impacts the average recovery time for patients after surgery. Given the current recovery time is 2 days. Formulate the null and alternative hypotheses.</p>
+      <p><span class="red">Problem 19 - </span> Which of the following is true regarding the Central Limit Theorm?</p>
+      <ul>
+        <li>It states that the sampling distribution of the sample means approaches a normal distribution as the sample size gets larger.</li>
+        <li>It states that the sampling distribution of the sample means approaches a normal distribution as the sample size gets smaller.</li>
+        <li>It states that the sampling distribution of the sample means approaches a normal distribution as the sample size gets larger and smaller.</li>
+        <li>It states that the sampling distribution of the sample means approaches a normal distribution as the sample size gets larger and smaller and remains the same.</li>
+      </ul>
+      <p><span class="red">Problem 20 - </span>If the alpha value is increased from 0.01 to 0.05, will the threshold for the test statistic to reject the null hypothesis increase or decrease?</p>
+      <p><span class="red">Problem 21 - </span>What is the difference in the way hyopthesis are formulated for one and two tailed tests?</p>
+      <p><span class="red">Problem 22 - </span>Given that the alpha value is 0.20, does it increase or decrease the likelhood of a Type 1 error? Does it increase or decrease the likelhood of a type II error?</p>
+      <p><span class="red">Problem 23 - </span>What is the difference between a one tailed and two tailed test?</p>
+      <p><span class="red">Problem 24 - </span>If &beta; is the probability of a type II error, what does 1 - &beta; stand for?</p>
+      <p><span class="red">Problem 25 - </span>A company claims that their new advertisement strategy leads to an average sales increase of at least 15%. A random sample of 50 stores was taken, and the average sales increase was found to be 12%, with a standard deviation of 5%. Using a significance level of 0.05, test whether there is enough evidence to support the company's claim.</p>
+      <ul>
+        <li>State the null and alternate hypothesis.</li>
+        <li>Calculate the test statistic.</li>
+        <li>Calculate the Confidence Interval.</li>
+        <li>Is there enough evidence to reject the null hypothesis?</li>
+      </ul>
+      <p><span class="red">Problem 26 - </span>A researcher wants to determine if there is a significant difference in the heights of a new strain of a plan species. For original strain of the plan species, the mean height was 25 cm. For the new strain of the plan species, a sample of 15 plants had a mean height of 28 cm with a variance of 5 cm. Conduct a hypothesis test at a significance level of 0.01 to ascertain if there is a significant difference in the heights of the two plant strains.</p>
+      <ul>
+        <li>State the null and alternate hypothesis.</li>
+        <li>Calculate the test statistic.</li>
+        <li>Calculate the Confidence Interval.</li>
+        <li>Is there enough evidence to reject the null hypothesis?</li>
+      </ul>
+
     </div>
 </body>
 </html>
